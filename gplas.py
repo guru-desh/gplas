@@ -85,3 +85,5 @@ sol_plot = go.Figure()
 for i in range(len(variables)):
     sol_plot.add_trace(go.Scatter(x=value_range, y=solutions[:, i], name=variables[i].name))
 st.plotly_chart(sol_plot, use_container_width=True)
+output = pd.DataFrame(solutions, columns=[var.name for var in variables])
+st.table(output)
